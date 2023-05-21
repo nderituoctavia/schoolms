@@ -1,0 +1,29 @@
+* {
+    color: #565656;
+}
+QToolBar {
+    background-color: #0677b6;
+}
+QToolButton {
+    color: #caf0f8;
+    font-size: 11pt;
+    border: 1px solid #00ffffff;
+}
+QToolButton:hover {
+    border: 1px solid silver;
+    border-radius: 5px;
+}
+
+QLineEdit, QDateEdit, QComboBox {
+    border: 1px solid #dcdcdc;
+    padding: 2px 5px;
+    height: 25px;
+    border-radius: 5px;
+}
+
+
+
+#image_upload {
+    border: 1px solid #c9c9c9;
+    border-radius: 4px;
+}
