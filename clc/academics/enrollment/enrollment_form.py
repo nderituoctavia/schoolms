@@ -8,10 +8,12 @@ registered and all basic information collected.
 *** Medical information
 *** Religious information
 """
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, QSize
+from PySide6.QtGui import QFont
 from PySide6.QtWidgets import QWidget, QGridLayout, QTabWidget, QLabel, QFormLayout, QHBoxLayout, QLineEdit, \
-    QComboBox, QDateEdit, QGroupBox, QRadioButton, QButtonGroup, QVBoxLayout
+    QComboBox, QDateEdit, QGroupBox, QRadioButton, QButtonGroup, QVBoxLayout, QPushButton
 
+import qtawesome as qta
 from clc.share.search import Search
 
 
@@ -79,6 +81,13 @@ class EnrollmentForm(QWidget):
         self.info_tab_widget.addTab(QLabel("Medical info"), "Medical")
         self.info_tab_widget.addTab(QLabel("Religious info"), "Religion")
 
-        layout.addWidget(ImageUpload(200, 200), 0, 0)
-        layout.addWidget(BiodataForm(), 0, 1)
-        layout.addWidget(self.info_tab_widget, 1, 0, 1, 2)
+        self.back_btn = QPushButton(qta.icon("ph.arrow-left-bold", color="teal"), 'Back')
+        self.back_btn.setFlat(True)
+        self.back_btn.setFont(QFont("Helvetica", 12))
+        self.back_btn.setFixedSize(QSize(100, 30))
+        self.back_btn.setIconSize(QSize(30, 30))
+
+        layout.addWidget(self.back_btn, 0, 0)
+        layout.addWidget(ImageUpload(200, 200), 1, 0)
+        layout.addWidget(BiodataForm(), 1, 1)
+        layout.addWidget(self.info_tab_widget, 2, 0, 1, 2)

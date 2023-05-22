@@ -4,15 +4,21 @@ from PySide6.QtWidgets import QStackedWidget, QWidget, QLineEdit, QLabel, QHBoxL
 
 import qtawesome as qta
 
+from clc.academics.enrollment.enrollment_form import EnrollmentForm
+from clc.academics.enrollment.learners import Learners
 from models.student import StudentModel
 
 
 class Enrollment(QStackedWidget):
     def __init__(self):
         super(Enrollment, self).__init__()
+        self.e_form = EnrollmentForm()
+        self.learners_view = Learners()
+        self.addWidget(self.learners_view)
+        self.addWidget(self.e_form)
 
-        learners_model = StudentModel()
-        learners_table = QTableView()
-        learners_table.setModel(learners_model)
+        self.event_listener()
 
-        self.addWidget(learners_table)
+    def event_listener(self):
+        self.learners_view.enroll_btn.clicked.connect(lambda: self.setCurrentIndex(1))
+        self.e_form.back_btn.clicked.connect(lambda: self.setCurrentIndex(0))

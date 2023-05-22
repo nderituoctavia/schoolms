@@ -1,27 +1,51 @@
 * {
     color: #565656;
 }
+
 QToolBar {
     background-color: #0677b6;
 }
+
 QToolButton {
     color: #caf0f8;
     font-size: 11pt;
     border: 1px solid #00ffffff;
 }
+
 QToolButton:hover {
     border: 1px solid silver;
     border-radius: 5px;
 }
 
-QLineEdit, QDateEdit, QComboBox {
+QLineEdit, QDateEdit {
     border: 1px solid #dcdcdc;
     padding: 2px 5px;
     height: 25px;
     border-radius: 5px;
 }
 
+QHeaderView:section {
+    font-size: 12pt;
+    padding: 5px;
+}
 
+#search {
+    background-color: #efefef;
+    border: 1px solid silver;
+    border-radius: 5px;
+    margin: 15px;
+}
+
+#search QLineEdit {
+    background-color: #fff;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border: none;
+    border-left: 1px solid silver;
+    color: grey;
+    font-size: 13pt;
+    font-weight: 300;
+}
 
 #image_upload {
     border: 1px solid #c9c9c9;
